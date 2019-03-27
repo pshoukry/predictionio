@@ -83,6 +83,7 @@ class ESPEvents(client: RestClient, config: StorageClientConfig, baseIndex: Stri
     conf.set("es.resource", s"$index/$estype")
     conf.set("es.query", query)
     conf.set("es.nodes", getESNodes())
+    conf.set("es.nodes.wan.only", "true")
 
     val rdd = sc.newAPIHadoopRDD(conf, classOf[EsInputFormat[Text, MapWritable]],
       classOf[Text], classOf[MapWritable]).map {
