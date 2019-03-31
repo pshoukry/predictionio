@@ -1,0 +1,11 @@
+version: "3"
+services:
+  pio:
+    image: openjdk:8
+    volumes:
+      - .:/predictionio
+    command: bash -c "cd /predictionio && ./make-distribution.sh -Dscala.version=2.11.12 -Dspark.version=2.2.3 -Dhadoop.version=2.7.7 -Delasticsearch.version=5.6.8 --with-deb"
+
+
+
+
