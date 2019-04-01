@@ -20,8 +20,7 @@ import PIOBuild._
 name := "apache-predictionio-data-elasticsearch"
 
 elasticsearchSparkArtifact := (if (majorVersion(sparkVersion.value) == 2) "elasticsearch-spark-20" else "elasticsearch-spark-13")
-
-elasticsearchVersion := "5.5.3"
+elasticsearchVersion := (if (majorVersion(elasticsearchVersion.value) < 5) "5.6.8" else elasticsearchVersion.value)
 
 libraryDependencies ++= Seq(
   "org.apache.predictionio" %% "apache-predictionio-core" % version.value % "provided",
