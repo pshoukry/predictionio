@@ -25,7 +25,7 @@ elasticsearchVersion := (if (majorVersion(elasticsearchVersion.value) < 5) "5.6.
 libraryDependencies ++= Seq(
   "org.apache.predictionio" %% "apache-predictionio-core" % version.value % "provided",
   "org.apache.spark"        %% "spark-core"               % sparkVersion.value % "provided",
-  "org.elasticsearch.client" % "org.elasticsearch.client"                     % elasticsearchVersion.value,
+  "org.elasticsearch.client" % "elasticsearch-rest-client"                     % elasticsearchVersion.value,
   "org.elasticsearch"       %% elasticsearchSparkArtifact.value % elasticsearchVersion.value
     exclude("org.apache.spark", "*"),
   "org.elasticsearch"        % "elasticsearch-hadoop-mr"  % elasticsearchVersion.value,
